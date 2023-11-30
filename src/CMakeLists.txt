@@ -78,7 +78,7 @@ if (WITH_BUNDLED_DEPS)
 endif (WITH_BUNDLED_DEPS)
 
 find_path(HAVE_SYS_EPOLL_H sys/epoll.h)
-if (HAVE_SYS_EPOLL_H)
+if (HAVE_SYS_EPOLL_H AND NOT QNX)
 	add_definitions("-DWITH_EPOLL")
 endif()
 
