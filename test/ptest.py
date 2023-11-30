@@ -4,6 +4,8 @@ import subprocess
 import time
 import sys
 
+TEST_NAME_IDX=1
+
 def next_test(tests, ports):
     if len(tests) == 0 or len(ports) == 0:
         return
@@ -62,12 +64,12 @@ def run_tests(tests, minport=1888, max_running=20):
                 runtime = time.time() - t.start_time
                 #(stdo, stde) = t.communicate()
                 if t.returncode == 1:
-                    print("%0.3fs : \033[31m%s\033[0m" % (runtime, t.args[0]))
+                    print("%0.3fs : \033[31m%s\033[0m" % (runtime, t.args[TEST_NAME_IDX]))
                     failed = failed + 1
-                    failed_tests.append(t.args[0])
+                    failed_tests.append(t.args[TEST_NAME_IDX])
                 else:
                     passed = passed + 1
-                    print("%0.3fs : \033[32m%s\033[0m" % (runtime, t.args[0]))
+                    print("%0.3fs : \033[32m%s\033[0m" % (runtime, t.args[TEST_NAME_IDX]))
 
     print("Passed: %d\nFailed: %d\nTotal: %d\nTotal time: %0.2f" % (passed, failed, passed+failed, time.time()-start_time))
     if failed > 0:
