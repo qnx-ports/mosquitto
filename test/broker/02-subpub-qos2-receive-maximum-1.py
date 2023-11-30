@@ -3,6 +3,7 @@
 # Does the broker respect receive maximum==1?
 # MQTT v5
 
+import sys
 from mosq_test_helper import *
 
 def helper(port):

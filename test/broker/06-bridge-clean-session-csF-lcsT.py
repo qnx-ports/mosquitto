@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Test whether a broker handles cleansession and local_cleansession correctly on bridges
 
+import sys
 from mosq_test_helper import *
 from collections import namedtuple
 

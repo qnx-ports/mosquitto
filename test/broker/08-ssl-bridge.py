@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 from mosq_test_helper import *
 
 source_dir = Path(__file__).resolve().parent
