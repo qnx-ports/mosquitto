@@ -2,8 +2,8 @@ include ../../../../../../../mosquitto/config.mk
 
 .PHONY: all clean reallyclean
 
-CFLAGS=-I$(TARGET)/usr/include -Werror
-LIBS=$(TARGET)/$(CPUVARDIR)/usr/lib/libmosquitto.so.1
+CFLAGS=-I$(TARGET)/$(PREFIX)/include -Werror
+LIBS=$(TARGET)/$(CPUVARDIR)/$(PREFIX)/lib/libmosquitto.so.1
 
 SRC = \
 	01-con-discon-success.c \

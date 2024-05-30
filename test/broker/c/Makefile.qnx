@@ -1,6 +1,6 @@
 .PHONY: all test clean reallyclean
 
-CFLAGS=-I$(TARGET)/usr/include -L$(TARGET)/$(CPUVARDIR)/usr/lib -Vgcc_nto$(CPUVARDIR) -Wall -Werror
+CFLAGS=-I$(TARGET)/$(PREFIX)/include -L$(TARGET)/$(CPUVARDIR)/$(PREFIX)/lib -Vgcc_nto$(CPUVARDIR) -Wall -Werror
 
 PLUGIN_SRC = \
 	auth_plugin_acl.c \
