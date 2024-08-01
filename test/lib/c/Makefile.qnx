@@ -1,4 +1,4 @@
-include ../../../../../../../mosquitto/config.mk
+include $(QNX_PROJECT_ROOT)/config.mk
 
 .PHONY: all clean reallyclean
 
