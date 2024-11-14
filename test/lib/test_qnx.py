@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/system/xbin/env python3
 
 import mosq_test_helper
 import ptest
