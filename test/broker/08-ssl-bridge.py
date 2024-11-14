@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 from mosq_test_helper import *
 
 def write_config(filename, port1, port2):
@@ -53,7 +54,10 @@ try:
     mosq_test.expect_packet(bridge, "subscribe", subscribe_packet)
     bridge.send(suback_packet)
 
-    pub = subprocess.Popen(['./08-ssl-bridge-helper.py', str(port2)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if sys.platform.startswith('qnx'):
+        pub = subprocess.Popen(['python3', './08-ssl-bridge-helper.py', str(port2)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    else:
+        pub = subprocess.Popen(['./08-ssl-bridge-helper.py', str(port2)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     pub.wait()
     (stdo, stde) = pub.communicate()
 
